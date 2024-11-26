@@ -10,20 +10,9 @@ defmodule Example do
   end
 
   def main do
-    name = "John"
-    status = Enum.random([:gold, :silver, :bronze, :platinum])
-
-    # if status == :active do
-    #   IO.puts("#{name} is active")
-    # else
-    #   IO.puts("#{name} is inactive")
-    # end
-
-    case status do
-      :gold -> IO.puts("Welcome #{name} to the Gold tier")
-      :silver -> IO.puts("Welcome #{name} to the Silver tier")
-      :bronze -> IO.puts("Welcome #{name} to the Bronze tier")
-      _ -> IO.puts("Welcome #{name} to the Platinum tier")
-    end
+    a = 10
+    b = 2
+    c = a/b
+    IO.puts Integer.gcd(50,18)
   end
 end
