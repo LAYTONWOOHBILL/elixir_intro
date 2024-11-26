@@ -4,13 +4,26 @@ defmodule Example do
 
   def start(_type, _args) do
     # code
-    IO.puts(Example.hello)
-    IO.puts(UUID.uuid4())
+    Example.main()
     # {:ok, self()}
     Supervisor.start_link([], strategy: :one_for_one)
   end
 
-  def hello do
-    :"Hello, world!"
+  def main do
+    name = "John"
+    status = Enum.random([:gold, :silver, :bronze, :platinum])
+
+    # if status == :active do
+    #   IO.puts("#{name} is active")
+    # else
+    #   IO.puts("#{name} is inactive")
+    # end
+
+    case status do
+      :gold -> IO.puts("Welcome #{name} to the Gold tier")
+      :silver -> IO.puts("Welcome #{name} to the Silver tier")
+      :bronze -> IO.puts("Welcome #{name} to the Bronze tier")
+      _ -> IO.puts("Welcome #{name} to the Platinum tier")
+    end
   end
 end
