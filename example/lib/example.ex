@@ -10,8 +10,21 @@ defmodule Example do
   end
 
   def main do
-    date_time = DateTime.new!(Date.new!(2025, 1, 1), Time.new!(0, 0, 0, 0), "Etc/UTC")
-    time_till = DateTime.diff(date_time, DateTime.utc_now(), :day)
-    IO.puts("Time till New Year: #{time_till} days")
+    memberships = {:bronze, :silver}
+    memberships = Tuple.append(memberships, :gold)
+    IO.inspect(memberships)
+
+    price = {5, 10, 15}
+    avg = Tuple.sum(price) / tuple_size(price)
+    IO.inspect(avg)
+
+    IO.puts("#{elem(memberships, 0)} #{elem(memberships, 1)} #{elem(memberships, 2)} is #{avg}")
+
+    users = [{"John", :gold}, {"Jane", :silver}, {"Jim", :bronze}]
+    users = List.insert_at(users, 0, {"Jill", :platinum})
+
+    Enum.each(users, fn {name, membership} ->
+      IO.puts("#{name} is a #{membership} member")
+    end)
   end
 end
